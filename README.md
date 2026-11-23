@@ -37,13 +37,10 @@ sudo apt install -y python3 python3-venv python3-pip build-essential python3-dev
 unzip spectryx-1.0.0.zip -d spectryx && cd spectryx
 python3 -m venv venv
 ./venv/bin/pip install -r requirements.txt
-mkdir -p data
-printf 'PUBLIC_MODE=False\nDB_PATH=data/meshtastic_data.db\nTASK_DB_PATH=data/tasks.db\n' > data/.spectryx_config
 ./venv/bin/python meshtastic_dashboard.py
 ```
 
-The starter config turns on the login. Then open `http://<this-machine>:8181/` and follow the setup
-wizard. For USB radios, add your user to the `dialout` group (`sudo usermod -aG dialout $USER`, then log
+Then open `http://<this-machine>:8181/` and follow the setup wizard, which creates your admin login. For USB radios, add your user to the `dialout` group (`sudo usermod -aG dialout $USER`, then log
 out and back in).
 
 ### Docker
